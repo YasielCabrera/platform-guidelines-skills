@@ -1,61 +1,103 @@
-# Achra Guidelines Skill
+# Platform Guidelines Plugin
 
-Skills for [Achra.com](https://achra.com). Packaged instructions so AI agents follow Achra platform guidelines, architecture, and conventions when working in the Achra codebase.
-
-Skills follow the [Agent Skills](https://agentskills.io/) format.
+AI agent plugin with platform guidelines, architecture, conventions, and engineering patterns. Compatible with **Claude Code** and **Cursor**.
 
 ## Available Skills
 
-### achra-guidelines
+### platform-guidelines
 
-Achra platform guidelines for architecture, conventions, business domains, and technical patterns. Covers module placement, naming, routing, GraphQL, feature flags, skeleton loading, and tech stack.
+Platform guidelines for architecture, conventions, business domains, and technical patterns. Covers module placement, naming, routing, GraphQL, feature flags, skeleton loading, Storybook stories, and tech stack.
 
 **Use when:**
-- Writing or refactoring Achra code (components, pages, services, hooks)
+- Writing or refactoring code (components, pages, services, hooks)
 - Creating skeleton loaders, loading placeholders, or Suspense fallbacks
+- Writing or reviewing Storybook stories
 - Adding modules, features, or routes
-- Answering questions about Achra architecture, conventions, or tech stack
+- Answering questions about architecture, conventions, or tech stack
 
 **Categories covered:**
-- Architecture (shared vs domain modules, placement)
-- Conventions (kebab-case, component structure, types)
-- Routing (App router, network-scoped routes)
+- Architecture (shared vs domain modules, placement, server actions)
+- Conventions (kebab-case, component structure, types, constants)
 - Data & GraphQL (domain graphql, generated code)
 - Feature flags (when and where to use)
 - Skeleton loading (layout mirroring, sizing, contrast)
+- Storybook stories (when to write, variants, decorators, MSW)
 - Tech stack (Next 16, React 19, Tailwind 4, shadcn, GraphQL)
 
-**Commands:** The `commands/` folder contains task specs (e.g. `skeleton.md`) that direct the agent to use achra-guidelines for specific workflows.
+## Commands
+
+- **skeleton** — Create a skeleton loading component following platform patterns
 
 ## Installation
 
-```bash
-npx skills add https://github.com/YasielCabrera/achra-guidelines-skill --skill achra-guidelines
-```
+### Claude Code
 
-Or, if published on [skills.sh](https://skills.sh/):
+Install from the CLI or use the plugin manager:
 
 ```bash
-npx skills add YasielCabrera/achra-guidelines-skill achra-guidelines
+claude plugin install platform-guidelines
 ```
 
-Requires Node.js and an agent that supports skills (e.g. Cursor).
+Or load locally during development:
 
-## Usage
+```bash
+claude --plugin-dir /path/to/platform-guidelines-skills
+```
 
-Reference the skill when working in Achra code. In Cursor: `@achra-guidelines` or `@.cursor/skills/achra-guidelines`.
+Once installed, use skills with the `platform-guidelines:` namespace:
 
-**Examples:**
 ```
-Create a skeleton component for this <component>
+/platform-guidelines:platform-guidelines
+/platform-guidelines:skeleton
 ```
+
+### Cursor
+
+Install from the Cursor Marketplace, or add locally:
+
+1. Clone this repo
+2. In Cursor, use the plugin manager to add the local directory
+
+Once installed, reference the skill:
+
 ```
-Add a new module following Achra conventions
+@platform-guidelines
 ```
+
+### Agent Skills (generic)
+
+```bash
+npx skills add https://github.com/YasielCabrera/platform-guidelines-skills --skill platform-guidelines
 ```
-Where should this component live in the Achra codebase?
+
+## Plugin Structure
+
+```
+platform-guidelines-skills/
+├── .claude-plugin/           # Claude Code plugin manifest
+│   └── plugin.json
+├── .cursor-plugin/           # Cursor plugin manifest
+│   └── plugin.json
+├── skills/
+│   └── platform-guidelines/     # Platform guidelines skill
+│       ├── SKILL.md          # Skill entry point
+│       └── references/       # Detailed reference docs
+│           ├── achra-overview.md
+│           ├── architecture.md
+│           ├── conventions.md
+│           ├── data-and-graphql.md
+│           ├── feature-flags-and-env.md
+│           ├── skeleton-loading.md
+│           ├── skeleton-loading-examples.md
+│           ├── storybook-stories.md
+│           ├── tech-stack.md
+│           └── rules/        # Granular rule files
+├── commands/
+│   └── skeleton.md           # Skeleton component task spec
+├── LICENSE
+└── README.md
 ```
 
 ## License
 
-See the repository license file.
+MIT

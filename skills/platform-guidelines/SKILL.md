@@ -1,22 +1,21 @@
 ---
-name: achra-guidelines
-description: Achra Platform guidelines, business rules, architecture, and engineering patterns. Use when writing or refactoring Achra code, adding modules or components, creating or updating skeleton loaders, loading placeholders, Suspense fallbacks, or Next.js loading.tsx, writing or reviewing Storybook stories, answering questions about Achra architecture or business domains, deciding when to use feature flags, applying Achra naming and placement conventions, or answering which technologies and libraries the project uses.
+name: platform-guidelines
+description: Platform guidelines, business rules, architecture, and engineering patterns. Use when writing or refactoring code, adding modules or components, writing or reviewing Storybook stories, answering questions about architecture or business domains, deciding when to use feature flags, applying naming and placement conventions, or answering which technologies and libraries the project uses.
 ---
 
-# Achra Guidelines
+# Platform Guidelines
 
 ## Overview
 
-Achra platform guidelines for architecture, conventions, business domains, and technical patterns. This skill covers where code lives, how to name and structure it, when to use feature flags, and how domains and routes map.
+Platform guidelines for architecture, conventions, business domains, and technical patterns. This skill covers where code lives, how to name and structure it, when to use feature flags, and how domains and routes map.
 
-**WIP:** These guidelines are a draft. When a task is not covered here or in linked references, prefer consistency with existing Achra code and patterns.
+**WIP:** These guidelines are a draft. When a task is not covered here or in linked references, prefer consistency with existing code and patterns.
 
 ## When to Apply
 
 Reference these guidelines when:
 - Writing new code in the Achra codebase (components, pages, services, hooks, providers, etc)
 - Writing or reviewing Storybook stories
-- Creating skeleton loaders, loading placeholders, Suspense fallbacks, or Next.js loading.tsx
 - Refactoring or reviewing code for Achra consistency
 - Adding a new module, feature, or route
 - Answering questions about Achra architecture, business domains, or conventions
@@ -36,7 +35,7 @@ Reference these guidelines when:
 | **Constants** | One `constants.ts` per module in `lib/`; UPPER_SNAKE_CASE | [conventions.md](references/conventions.md) |
 | **Tech stack** | Next 16, React 19, TS, Tailwind 4, shadcn, GraphQL + TanStack Query | Framework, UI, data, forms, and tooling. See [tech-stack.md](references/tech-stack.md). |
 | **Storybook stories** | Sections/pages + reusable components; min variants | Create for section/page and shared components; skip one-time small components; cover Default, Loading, Empty, Error. See [storybook-stories.md](references/storybook-stories.md). |
-| **Skeleton loading** | Mirror layout with Skeleton | Use `Skeleton` from `@/shared/components/ui/skeleton`; place `*-skeleton.tsx` next to source component. See [skeleton-loading.md](references/skeleton-loading.md). |
+| **Skeleton loading** | See dedicated **skeleton-loading** skill | Skeleton creation has its own skill with full rules, workflow, and examples. |
 | **Server actions** | actions/, one per file, suffix action | In `modules/<module>/actions/`; file and function names end with `action`. See [architecture.md](references/architecture.md). |
 
 ## Storybook stories
@@ -60,20 +59,7 @@ Full rules, patterns, and examples: [storybook-stories.md](references/storybook-
 
 ## Skeleton loading
 
-Skeleton loading is an Achra pattern for loading states. Use it for route loading (`loading.tsx`), Suspense fallbacks, or any placeholder that should match the final layout to avoid shift.
-
-**Workflow:** Locate the target UI → create a sibling `{component-name}-skeleton.tsx` → mirror structure and replace content with `Skeleton` elements sized to match → remove interactivity and data logic → validate layout parity and contrast.
-
-**Quick checklist:**
-- Mirror layout containers and responsive classes (`sm:`, `md:`, etc.).
-- Replace text with `Skeleton` using line-height-derived heights; for multi-line with `gap-1`, subtract 2px per line to prevent layout shift.
-- Remove buttons, links, state, effects, and data fetching.
-- Use `bg-border` on skeletons inside `bg-accent`, `bg-muted`, or `bg-secondary`.
-- Reuse existing skeleton subcomponents when available.
-
-**Required import:** `import { Skeleton } from '@/shared/components/ui/skeleton'`
-
-Full rules, sizing, contrast, and accessibility: [skeleton-loading.md](references/skeleton-loading.md). Patterns and examples: [skeleton-loading-examples.md](references/skeleton-loading-examples.md).
+Skeleton loading has been extracted into a dedicated **skeleton-loading** skill with comprehensive rules, workflow, sizing guidelines, and examples. Use that skill when creating skeleton loaders, loading placeholders, Suspense fallbacks, or Next.js `loading.tsx` files.
 
 ## References
 
@@ -86,7 +72,5 @@ Full documentation:
 - [data-and-graphql.md](references/data-and-graphql.md) — GraphQL and services location; generated code
 - [tech-stack.md](references/tech-stack.md) — Framework, UI, data, forms, and tooling used in the project
 - [storybook-stories.md](references/storybook-stories.md) — When to create stories, variant policy, file placement, title convention, decorators, MSW, mock data
-- [skeleton-loading.md](references/skeleton-loading.md) — Skeleton loaders: layout mirroring, sizing, contrast, cleanup, validation
-- [skeleton-loading-examples.md](references/skeleton-loading-examples.md) — Skeleton patterns and code examples
 - [achra-guidelines.md](references/achra-guidelines.md) — Human-facing index with table of contents and links
 - [rules/](references/rules/) — Granular rules (arch-, conv-, ff-, data-)

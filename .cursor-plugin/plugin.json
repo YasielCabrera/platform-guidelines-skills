@@ -1,0 +1,21 @@
+{
+  "name": "platform-guidelines",
+  "displayName": "Platform Guidelines",
+  "description": "Platform guidelines, architecture, conventions, and engineering patterns for AI agents working in Powerhouse codebases.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Yasiel Cabrera"
+  },
+  "license": "MIT",
+  "keywords": [
+    "powerhouse",
+    "guidelines",
+    "architecture",
+    "conventions",
+    "nextjs",
+    "react",
+    "graphql",
+    "storybook",
+    "skeleton-loading"
+  ]
+}
