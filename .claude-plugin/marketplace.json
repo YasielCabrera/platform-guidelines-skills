@@ -1,0 +1,19 @@
+{
+  "name": "platform-guidelines-skills",
+  "owner": {
+    "name": "Yasiel Cabrera"
+  },
+  "plugins": [
+    {
+      "name": "platform-guidelines-skills",
+      "source": "./",
+      "description": "Platform guidelines, architecture, conventions, and engineering patterns for AI agents working in Powerhouse codebases.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Yasiel Cabrera"
+      },
+      "repository": "https://github.com/YasielCabrera/platform-guidelines-skills",
+      "license": "MIT"
+    }
+  ]
+}
