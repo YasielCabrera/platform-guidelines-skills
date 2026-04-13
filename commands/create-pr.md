@@ -1,3 +1,8 @@
+---
+name: create-pr
+description: Open a pull request on GitHub using the GitHub MCP, following the repo's PR template.
+---
+
 # Create Pull Request
 
 Open a pull request on GitHub using the GitHub MCP, following the repo's PR template. Always propose, confirm, then execute — iterate until the user accepts.

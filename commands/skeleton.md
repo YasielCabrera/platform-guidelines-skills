@@ -1,3 +1,8 @@
+---
+name: skeleton
+description: Create a skeleton loading component that mirrors a target component's layout to prevent layout shift.
+---
+
 # Create Skeleton Component
 
 Create a skeleton loading state that mirrors the target component’s layout to prevent layout shift.

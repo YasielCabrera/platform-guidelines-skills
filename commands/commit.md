@@ -1,3 +1,8 @@
+---
+name: commit
+description: Safely commit uncommitted changes with proper branch management and semantic commit messages.
+---
+
 # Commit Changes
 
 Safely commit uncommitted changes with proper branch management and semantic commit messages. Always propose, confirm, then execute — iterate until the user accepts.
