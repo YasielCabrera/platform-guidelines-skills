@@ -28,8 +28,22 @@ claude --plugin-dir /path/to/platform-guidelines-skills
 
 ### Cursor
 
-1. Clone this repo
-2. Add the local directory via the plugin manager
+**Local development** ([test plugins locally](https://cursor.com/docs/plugins#test-plugins-locally)):
+
+1. Clone this repo (or use your existing checkout path).
+2. Symlink the **repository root** (the folder that contains `.cursor-plugin/`) into Cursor’s local plugins directory:
+
+   ```bash
+   mkdir -p ~/.cursor/plugins/local
+   ln -sfn /path/to/platform-guidelines-skills ~/.cursor/plugins/local/platform-guidelines
+   ```
+
+   Use `ln -sfn` so re-running the command updates an existing symlink.
+
+3. Reload Cursor (**Command Palette** → **Developer: Reload Window**, or restart the app).
+4. Confirm under **Settings → Plugins** that the plugin is listed.
+
+If the plugin does not appear after reload, some Cursor versions do not follow symlinks under `~/.cursor/plugins/local/`; copy the repo instead: `cp -R /path/to/platform-guidelines-skills ~/.cursor/plugins/local/platform-guidelines` ([related issue](https://github.com/cursor/plugins/issues/35)).
 
 ### Generic
 
