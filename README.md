@@ -10,6 +10,7 @@ AI agent plugin with platform guidelines, architecture, conventions, and enginee
 | Skill | `storybook-stories` | Storybook story authoring rules: when to create stories, variants, decorators, MSW mocks, and mock data |
 | Skill | `skeleton-loading` | Skeleton loading patterns and component guidelines |
 | Agent | `skeleton-builder` | Builds skeleton loading components following platform patterns |
+| Agent | `stories-builder` | Reviews, edits, and creates Storybook stories using the storybook-stories skill |
 | Agent | `architecture-compliance` | Audits code against platform guidelines and fixes violations |
 | Command | `skeleton` | Create a skeleton loading component |
 
