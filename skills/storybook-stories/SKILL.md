@@ -1,3 +1,8 @@
+---
+name: storybook-stories
+description: Storybook story authoring guidelines — when to create stories, variant policy, file placement, title convention, decorators, MSW mocking, and mock data. Use when writing or reviewing Storybook stories, deciding which variants to add, configuring Next.js navigation in stories, or mocking API calls with MSW.
+---
+
 # Storybook Stories
 
 ## Purpose
@@ -242,7 +247,7 @@ modules/roadmap/
 Keep mock data realistic and representative of production data shapes.
 
 ### Keep inline (do not move to a dedicated file)
-
+ 
 - Array of short strings with just a few elements (e.g. `['Option A', 'Option B', 'Option C']`)
 - JSX code that is not excessively large
 - Small–medium array of JSX elements

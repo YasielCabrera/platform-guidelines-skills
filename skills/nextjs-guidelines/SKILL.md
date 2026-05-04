@@ -1,6 +1,6 @@
 ---
 name: nextjs-guidelines
-description: Next.js application guidelines, architecture, conventions, and engineering patterns. Use when writing or refactoring code, adding modules or components, writing or reviewing Storybook stories, answering questions about architecture, deciding when to use feature flags, applying naming and placement conventions, or answering which technologies and libraries the project uses.
+description: Next.js application guidelines, architecture, conventions, and engineering patterns. Use when writing or refactoring code, adding modules or components, answering questions about architecture, deciding when to use feature flags, applying naming and placement conventions, or answering which technologies and libraries the project uses.
 ---
 
 # Next.js Guidelines
@@ -15,7 +15,6 @@ Engineering guidelines for Next.js applications: architecture, conventions, and 
 
 Reference these guidelines when:
 - Writing new code (components, pages, services, hooks, providers, server actions, etc.)
-- Writing or reviewing Storybook stories
 - Refactoring or reviewing code for consistency with project conventions
 - Adding a new module, feature, or route
 - Answering questions about architecture or conventions
@@ -34,32 +33,17 @@ Reference these guidelines when:
 | **Types** | Props in file; reusable at module root | [conventions.md](references/conventions.md) |
 | **Constants** | One `constants.ts` per module in `lib/`; UPPER_SNAKE_CASE | [conventions.md](references/conventions.md) |
 | **Tech stack** | Next 16, React 19, TS, Tailwind 4, shadcn, GraphQL + TanStack Query | Framework, UI, data, forms, and tooling. See [tech-stack.md](references/tech-stack.md). |
-| **Storybook stories** | Sections/pages + reusable components; min variants | Create for section/page and shared components; skip one-time small components; cover Default, Loading, Empty, Error. See [storybook-stories.md](references/storybook-stories.md). |
 | **Skeleton loading** | See dedicated **skeleton-loading** skill | Skeleton creation has its own skill with full rules, workflow, and examples. |
+| **Storybook stories** | See dedicated **storybook-stories** skill | Story authoring (variants, decorators, MSW, mocks) has its own skill. |
 | **Server actions** | actions/, one per file, suffix action | In `modules/<module>/actions/`; file and function names end with `action`. See [architecture.md](references/architecture.md). |
-
-## Storybook stories
-
-Stories serve two purposes: **documentation** for reusable/shared components and **visual regression testing** via Chromatic on every PR.
-
-**When to create a story:** For section-level and page-level components, and for any reusable component (especially in `modules/shared/`). Skip one-time small components — write the story on the parent section component instead.
-
-**Variants:** Only create variants that produce visually distinct UI states. Default, Loading, Empty, and Error cover most components. Avoid prop-permutation variants that look identical in Chromatic.
-
-**Key patterns:**
-- Colocate `[component-name].stories.tsx` next to the component file
-- Import from `@storybook/nextjs-vite`
-- Use `layout: 'fullscreen'` for sections, `'centered'` for isolated components
-- Use shared decorators from `modules/shared/lib/decorators.tsx`: `withNuqsAdapter`, `withReactQueryProvider`, `withPortalFontStyles`
-- Mock API calls with MSW (`parameters.msw.handlers`); use `delay('infinite')` for the Loading variant
-- Place mock data in `modules/{module}/mocks/`, not inline in story files
-- Use `tags: ['autodocs']` only on shared UI components
-
-Full rules, patterns, and examples: [storybook-stories.md](references/storybook-stories.md).
 
 ## Skeleton loading
 
 Skeleton loading has been extracted into a dedicated **skeleton-loading** skill with comprehensive rules, workflow, sizing guidelines, and examples. Use that skill when creating skeleton loaders, loading placeholders, Suspense fallbacks, or Next.js `loading.tsx` files.
+
+## Storybook stories
+
+Storybook story authoring has been extracted into a dedicated **storybook-stories** skill covering when to create stories, variant policy, file placement, title convention, decorators, MSW mocking, mock data, and full examples. Use that skill when writing or reviewing stories.
 
 ## References
 
@@ -70,5 +54,4 @@ Full documentation:
 - [feature-flags-and-env.md](references/feature-flags-and-env.md) — When and where to use feature flags; env behavior
 - [data-and-graphql.md](references/data-and-graphql.md) — GraphQL and services location; generated code
 - [tech-stack.md](references/tech-stack.md) — Framework, UI, data, forms, and tooling used in the project
-- [storybook-stories.md](references/storybook-stories.md) — When to create stories, variant policy, file placement, title convention, decorators, MSW, mock data
 - [rules/](references/rules/) — Granular rules (arch-, conv-, ff-, data-)

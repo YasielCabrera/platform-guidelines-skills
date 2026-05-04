@@ -6,7 +6,8 @@ AI agent plugin with platform guidelines, architecture, conventions, and enginee
 
 | Type | Name | Description |
 |------|------|-------------|
-| Skill | `nextjs-guidelines` | Architecture, conventions, data & GraphQL, feature flags, Storybook, and tech stack rules for Next.js apps |
+| Skill | `nextjs-guidelines` | Architecture, conventions, data & GraphQL, feature flags, and tech stack rules for Next.js apps |
+| Skill | `storybook-stories` | Storybook story authoring rules: when to create stories, variants, decorators, MSW mocks, and mock data |
 | Skill | `skeleton-loading` | Skeleton loading patterns and component guidelines |
 | Agent | `skeleton-builder` | Builds skeleton loading components following platform patterns |
 | Agent | `architecture-compliance` | Audits code against platform guidelines and fixes violations |
