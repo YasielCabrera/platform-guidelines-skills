@@ -1,7 +1,7 @@
 {
-  "name": "platform-guidelines",
-  "displayName": "Platform Guidelines",
-  "description": "Platform guidelines, architecture, conventions, and engineering patterns for AI agents working in Powerhouse codebases.",
+  "name": "addg",
+  "displayName": "ADDG (Agent Development Driven Guidelines)",
+  "description": "General development guidelines, architecture patterns, conventions, and engineering practices for AI coding agents.",
   "version": "1.0.0",
   "author": {
     "name": "Yasiel Cabrera"

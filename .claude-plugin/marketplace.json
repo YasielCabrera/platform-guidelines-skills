@@ -1,18 +1,18 @@
 {
-  "name": "platform-guidelines-skills",
+  "name": "addg",
   "owner": {
     "name": "Yasiel Cabrera"
   },
   "plugins": [
     {
-      "name": "platform-guidelines-skills",
+      "name": "addg",
       "source": "./",
-      "description": "Platform guidelines, architecture, conventions, and engineering patterns for AI agents working in Powerhouse codebases.",
+      "description": "General development guidelines, architecture patterns, conventions, and engineering practices for AI coding agents.",
       "version": "1.0.0",
       "author": {
         "name": "Yasiel Cabrera"
       },
-      "repository": "https://github.com/YasielCabrera/platform-guidelines-skills",
+      "repository": "https://github.com/YasielCabrera/addg-guidelines-skills",
       "license": "MIT"
     }
   ]

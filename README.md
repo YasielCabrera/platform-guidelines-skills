@@ -1,4 +1,4 @@
-# Platform Guidelines Plugin
+# ADDG (Agent Development Driven Guidelines)
 
 AI agent plugin with platform guidelines, architecture, conventions, and engineering patterns. Compatible with **Claude Code** and **Cursor**.
 
@@ -18,13 +18,13 @@ AI agent plugin with platform guidelines, architecture, conventions, and enginee
 ### Claude Code
 
 ```bash
-claude plugin install platform-guidelines
+claude plugin install addg
 ```
 
 Or load locally:
 
 ```bash
-claude --plugin-dir /path/to/platform-guidelines-skills
+claude --plugin-dir /path/to/addg-guidelines-skills
 ```
 
 ### Cursor
@@ -36,7 +36,7 @@ claude --plugin-dir /path/to/platform-guidelines-skills
 
    ```bash
    mkdir -p ~/.cursor/plugins/local
-   ln -sfn /path/to/platform-guidelines-skills ~/.cursor/plugins/local/platform-guidelines
+   ln -sfn /path/to/addg-guidelines-skills ~/.cursor/plugins/local/addg
    ```
 
    Use `ln -sfn` so re-running the command updates an existing symlink.
@@ -44,12 +44,12 @@ claude --plugin-dir /path/to/platform-guidelines-skills
 3. Reload Cursor (**Command Palette** → **Developer: Reload Window**, or restart the app).
 4. Confirm under **Settings → Plugins** that the plugin is listed.
 
-If the plugin does not appear after reload, some Cursor versions do not follow symlinks under `~/.cursor/plugins/local/`; copy the repo instead: `cp -R /path/to/platform-guidelines-skills ~/.cursor/plugins/local/platform-guidelines` ([related issue](https://github.com/cursor/plugins/issues/35)).
+If the plugin does not appear after reload, some Cursor versions do not follow symlinks under `~/.cursor/plugins/local/`; copy the repo instead: `cp -R /path/to/addg-guidelines-skills ~/.cursor/plugins/local/addg` ([related issue](https://github.com/cursor/plugins/issues/35)).
 
 ### Generic
 
 ```bash
-npx skills add https://github.com/YasielCabrera/platform-guidelines-skills --skill nextjs-guidelines
+npx skills add https://github.com/YasielCabrera/addg-guidelines-skills --skill nextjs-guidelines
 ```
 
 ## License
