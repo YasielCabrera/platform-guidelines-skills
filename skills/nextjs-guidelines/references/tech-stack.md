@@ -2,7 +2,7 @@
 
 **Version 0.1.0 (draft)**
 
-Frameworks, UI libraries, data layer, and tooling used in the Achra project. Use this doc when choosing libraries, onboarding, or answering “what does Achra use for X?” For current versions, check `package.json`, `next.config.ts`, and `codegen.ts`.
+Frameworks, UI libraries, data layer, and tooling used in this project. Use this doc when choosing libraries, onboarding, or answering “what does the project use for X?” For current versions, check `package.json`, `next.config.ts`, and `codegen.ts`.
 
 ## Framework and runtime
 

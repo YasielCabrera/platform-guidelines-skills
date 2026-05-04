@@ -1,26 +1,26 @@
 ---
-name: platform-guidelines
-description: Platform guidelines, business rules, architecture, and engineering patterns. Use when writing or refactoring code, adding modules or components, writing or reviewing Storybook stories, answering questions about architecture or business domains, deciding when to use feature flags, applying naming and placement conventions, or answering which technologies and libraries the project uses.
+name: nextjs-guidelines
+description: Next.js application guidelines, architecture, conventions, and engineering patterns. Use when writing or refactoring code, adding modules or components, writing or reviewing Storybook stories, answering questions about architecture, deciding when to use feature flags, applying naming and placement conventions, or answering which technologies and libraries the project uses.
 ---
 
-# Platform Guidelines
+# Next.js Guidelines
 
 ## Overview
 
-Platform guidelines for architecture, conventions, business domains, and technical patterns. This skill covers where code lives, how to name and structure it, when to use feature flags, and how domains and routes map.
+Engineering guidelines for Next.js applications: architecture, conventions, and technical patterns. This skill covers where code lives, how to name and structure it, when to use feature flags, and how routes and modules map.
 
 **WIP:** These guidelines are a draft. When a task is not covered here or in linked references, prefer consistency with existing code and patterns.
 
 ## When to Apply
 
 Reference these guidelines when:
-- Writing new code in the Achra codebase (components, pages, services, hooks, providers, etc)
+- Writing new code (components, pages, services, hooks, providers, server actions, etc.)
 - Writing or reviewing Storybook stories
-- Refactoring or reviewing code for Achra consistency
+- Refactoring or reviewing code for consistency with project conventions
 - Adding a new module, feature, or route
-- Answering questions about Achra architecture, business domains, or conventions
+- Answering questions about architecture or conventions
 - Deciding where to place a component or whether to add a feature flag
-- Answering questions about Achra's tech stack or choosing libraries/tools
+- Answering questions about the tech stack or choosing libraries/tools
 
 ## Quick Reference
 
@@ -29,7 +29,7 @@ Reference these guidelines when:
 | **Module placement** | Shared vs domain, promotion rules | Used in 2+ modules or app root → check [Promotion rules](references/architecture.md#promotion-rules); single domain → `modules/{domain}/`. See [architecture.md](references/architecture.md). |
 | **Naming** | kebab-case | Files and directories: `component-name.tsx`, `use-hook-name.ts`. See [conventions.md](references/conventions.md). |
 | **Components** | Directory + index | One dir per component; **one component per file** (subcomponents in separate files). Helpers in **lib/utils**, not in component files. Named function, named export. See [conventions.md](references/conventions.md). |
-| **Feature flags** | Shared, env-specific | `modules/shared/lib/feature-flags/`. Use for gating domains/sections (workstreams, finances, roadmaps). See [feature-flags-and-env.md](references/feature-flags-and-env.md). |
+| **Feature flags** | Shared, env-specific | `modules/shared/lib/feature-flags/`. Use for gating domains/sections per environment. See [feature-flags-and-env.md](references/feature-flags-and-env.md). |
 | **Data / GraphQL** | Domain graphql, generated | Queries in `modules/<domain>/graphql/*.graphql`; generated in `modules/__generated__/graphql/`. See [data-and-graphql.md](references/data-and-graphql.md). |
 | **Types** | Props in file; reusable at module root | [conventions.md](references/conventions.md) |
 | **Constants** | One `constants.ts` per module in `lib/`; UPPER_SNAKE_CASE | [conventions.md](references/conventions.md) |
@@ -65,12 +65,10 @@ Skeleton loading has been extracted into a dedicated **skeleton-loading** skill 
 
 Full documentation:
 
-- [achra-overview.md](references/achra-overview.md) — Business and product context; main domains and where they live
 - [architecture.md](references/architecture.md) — Module layout, shared vs domain, promotion rules, placement decision tree, imports
 - [conventions.md](references/conventions.md) — Naming, component directories, exports
 - [feature-flags-and-env.md](references/feature-flags-and-env.md) — When and where to use feature flags; env behavior
 - [data-and-graphql.md](references/data-and-graphql.md) — GraphQL and services location; generated code
 - [tech-stack.md](references/tech-stack.md) — Framework, UI, data, forms, and tooling used in the project
 - [storybook-stories.md](references/storybook-stories.md) — When to create stories, variant policy, file placement, title convention, decorators, MSW, mock data
-- [achra-guidelines.md](references/achra-guidelines.md) — Human-facing index with table of contents and links
 - [rules/](references/rules/) — Granular rules (arch-, conv-, ff-, data-)

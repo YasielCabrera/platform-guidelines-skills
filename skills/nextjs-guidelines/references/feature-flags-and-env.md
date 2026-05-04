@@ -2,7 +2,7 @@
 
 **Version 0.1.0 (draft)**
 
-Feature flags gate domains and sections (workstreams, finances, roadmaps, etc.) per environment. They live in the shared module and are consumed in config, nav, and conditional UI.
+Feature flags gate whole domains and sections per environment. They live in the shared module and are consumed in config, nav, and conditional UI.
 
 ## Location
 
@@ -18,9 +18,9 @@ Feature flags gate domains and sections (workstreams, finances, roadmaps, etc.) 
 
 Use flags to:
 
-- **Gate whole domains or sections** — e.g. workstreams, roadmaps, finances sections, builders section links.
-- **Toggle nav items or routes** — e.g. show/hide Workstreams or Governance in the navbar.
-- **Control environment-specific behavior** — e.g. whitelist overlay, login button, etc.
+- **Gate whole domains or sections** — entire feature areas that ship to some environments before others.
+- **Toggle nav items or routes** — show or hide top-level navigation entries based on environment.
+- **Control environment-specific behavior** — auth overlays, debug panels, dev-only banners, etc.
 
 Do **not** use them for:
 
@@ -34,12 +34,12 @@ Import the default export from the feature-flags module and read the appropriate
 ```typescript
 import ff from '@/shared/lib/feature-flags'
 
-if (ff.workstreams.WORKSTREAMS_ENABLED) {
-  // show workstreams nav / content
+if (ff.<domain>.<FEATURE>_ENABLED) {
+  // show domain nav / content
 }
 
-if (ff.finances.SUMMARY_SECTION_ENABLED) {
-  // show summary section
+if (ff.<domain>.<SECTION>_SECTION_ENABLED) {
+  // show section
 }
 ```
 
@@ -47,7 +47,7 @@ Use flags in:
 
 - **Nav/config** — e.g. `modules/shared/config/navbar-config.ts` to build links conditionally.
 - **Layouts and pages** — to conditionally render sections or redirect.
-- **Domain components** — when a section is optional (e.g. wallets, breakdown chart).
+- **Domain components** — when a section is optional.
 
 ## Adding a new flag
 
@@ -55,12 +55,12 @@ Use flags in:
 2. **Set per environment** — Add the same property in `ff.dev.ts`, `ff.staging.ts`, and `ff.production.ts` with the desired value for each.
 3. **Use in code** — Import `ff` and branch on the new flag where the feature is gated.
 
-Keep flag names clear and grouped (e.g. under `workstreams.*`, `finances.*`, `builders.*`).
+Keep flag names clear and grouped by domain (e.g. under `<domain>.*`).
 
 ## Environment behavior (summary)
 
-- **Development** — Most optional domains/sections enabled (workstreams, roadmaps, finances sections, builders links, etc.).
+- **Development** — Most optional domains/sections enabled.
 - **Staging** — Same as dev or tuned for QA; see `ff.staging.ts`.
-- **Production** — Fewer experimental areas on by default (e.g. workstreams, project details, RFP, some finances sections and builders links can be off).
+- **Production** — Fewer experimental areas on by default.
 
 Always read the current `ff.*.ts` files for the exact behavior per environment.

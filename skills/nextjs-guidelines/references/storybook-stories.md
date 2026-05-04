@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Stories in Achra serve two goals:
+Stories serve two goals:
 
 1. **Component documentation** — primarily for shared/reusable components, so developers understand available variants and props
 2. **Visual regression testing via Chromatic** — Chromatic runs on every PR and fails if it detects unexpected UI changes, making stories the primary regression safety net

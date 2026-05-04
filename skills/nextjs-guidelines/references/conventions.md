@@ -2,7 +2,7 @@
 
 **Version 0.1.0 (draft)**
 
-Achra naming and file/export conventions so code stays consistent. These are the source of truth for component structure and exports in the Achra codebase.
+Naming, file, and export conventions so code stays consistent. These are the source of truth for component structure and exports in this codebase.
 
 ## Naming
 

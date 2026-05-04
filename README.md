@@ -6,7 +6,7 @@ AI agent plugin with platform guidelines, architecture, conventions, and enginee
 
 | Type | Name | Description |
 |------|------|-------------|
-| Skill | `platform-guidelines` | Architecture, conventions, data & GraphQL, feature flags, Storybook, and tech stack rules |
+| Skill | `nextjs-guidelines` | Architecture, conventions, data & GraphQL, feature flags, Storybook, and tech stack rules for Next.js apps |
 | Skill | `skeleton-loading` | Skeleton loading patterns and component guidelines |
 | Agent | `skeleton-builder` | Builds skeleton loading components following platform patterns |
 | Agent | `architecture-compliance` | Audits code against platform guidelines and fixes violations |
@@ -48,7 +48,7 @@ If the plugin does not appear after reload, some Cursor versions do not follow s
 ### Generic
 
 ```bash
-npx skills add https://github.com/YasielCabrera/platform-guidelines-skills --skill platform-guidelines
+npx skills add https://github.com/YasielCabrera/platform-guidelines-skills --skill nextjs-guidelines
 ```
 
 ## License
