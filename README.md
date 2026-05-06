@@ -19,7 +19,9 @@ AI agent plugin with platform guidelines, architecture, conventions, and enginee
 ### Claude Code
 
 ```bash
-claude plugin install addg
+/plugin marketplace add YasielCabrera/addg-guidelines-skills
+
+/plugin install addg@addg
 ```
 
 Or load locally:
